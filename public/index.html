@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0" name="viewport">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,900" rel="stylesheet">
+  <title></title>
+  <style>
+    body {
+      color: #2a2a68;
+      background-color: #fcfcfc;
+      font-family: "Noto Sans JP", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      word-wrap: break-word;
+    }
+
+    a {
+      color: #2a2a68;
+    }
+
+    .content p {
+      margin: 0 0 1.6em;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>pyspa忘年会2019</h1>
+  <h2>概要</h2>
+  <dl>
+    <dt>日時</dt>
+    <dd>
+      2019/12/12(木) 20:00〜<br>
+      <small>
+        <a
+          href="https://www.google.com/calendar/render?action=TEMPLATE&text=pyspa%E5%BF%98%E5%B9%B4%E4%BC%9A2019&details=https%3A%2F%2Fpyspa-event-2019.web.app&dates=20191212T110000Z%2F20191212T130000Z"><strong>Add
+            to 📅</strong></a></small>
+    </dd>
+    <dt>場所</dt>
+    <dd><a href="https://r.gnavi.co.jp/g306004/">北海道（品川）</a></dd>
+    <dt>金額</dt>
+    <dd>5,200円 <small>(5,000円 + 決済手数料3.6%)</small></dd>
+  </dl>
+
+  <h2>参加登録</h2>
+  <ol>
+    <li><a href="https://docs.google.com/spreadsheets/d/1RFL761MTJaO1_WLJOrUpJc67IvFteVJ4zw56OL9ErR8/edit#gid=0"
+        target="_blank">スプレッドシートに名前を書く</a></li>
+    <li>参加費を支払う</li>
+  </ol>
+  <p>
+    <!-- Load Stripe.js on your website. -->
+    <script src="https://js.stripe.com/v3"></script>
+
+    <!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+    <button style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+      id="checkout-button-sku_G1y8w4HGssN0kj" role="link">
+      参加費を支払う
+    </button>
+
+    <div id="error-message"></div>
+
+    <script>
+      (function () {
+        var stripe = Stripe('pk_live_C43tVmaXlZjjw4yrLf7xPOqv00hl99zxe2');
+
+        var checkoutButton = document.getElementById('checkout-button-sku_G1y8w4HGssN0kj');
+        checkoutButton.addEventListener('click', function () {
+          // When the customer clicks on the button, redirect
+          // them to Checkout.
+          stripe.redirectToCheckout({
+            items: [{ sku: 'sku_G1y8w4HGssN0kj', quantity: 1 }],
+
+            // Do not rely on the redirect to the successUrl for fulfilling
+            // purchases, customers may not always reach the success_url after
+            // a successful payment.
+            // Instead use one of the strategies described in
+            // https://stripe.com/docs/payments/checkout/fulfillment
+            successUrl: 'https://pyspa-event-2019.web.app/success.html',
+            cancelUrl: 'https://pyspa-event-2019.web.app/canceled.html',
+          })
+            .then(function (result) {
+              if (result.error) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, display the localized error message to your customer.
+                var displayError = document.getElementById('error-message');
+                displayError.textContent = result.error.message;
+              }
+            });
+        });
+      })();
+    </script>
+  </p>
+
+</body>
+
+</html>
