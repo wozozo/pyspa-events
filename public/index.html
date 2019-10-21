@@ -1,11 +1,16 @@
 <!doctype html>
 <html>
 
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/websaite#">
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width,initial-scale=1.0" name="viewport">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,900" rel="stylesheet">
-  <title></title>
+  <meta property="og:url" content="https://year-end-2019.pyspa.org" />
+  <meta property="og:title" content="pyspa忘年会2019" />
+  <meta property="og:site_name" content="pyspa忘年会2019" />
+  <meta property="og:image" content="https://year-end-2019.pyspa.org/E5BF98E5B9B4E4BC9A.jpg" />
+  <title>pyspa忘年会2019</title>
   <style>
     body {
       color: #2a2a68;
@@ -35,7 +40,7 @@
       2019/12/12(木) 20:00〜<br>
       <small>
         <a
-          href="https://www.google.com/calendar/render?action=TEMPLATE&text=pyspa%E5%BF%98%E5%B9%B4%E4%BC%9A2019&details=https%3A%2F%2Fpyspa-event-2019.web.app&dates=20191212T110000Z%2F20191212T130000Z"><strong>Add
+          href="https://www.google.com/calendar/render?action=TEMPLATE&text=pyspa%E5%BF%98%E5%B9%B4%E4%BC%9A2019&details=https%3A%2F%2Fyear-end-2019.pyspa.org&dates=20191212T110000Z%2F20191212T130000Z"><strong>Add
             to 📅</strong></a></small>
     </dd>
     <dt>場所</dt>
@@ -46,9 +51,9 @@
 
   <h2>参加登録</h2>
   <ol>
-    <li><a href="https://docs.google.com/spreadsheets/d/1RFL761MTJaO1_WLJOrUpJc67IvFteVJ4zw56OL9ErR8/edit#gid=0"
-        target="_blank">スプレッドシートに名前を書く</a></li>
     <li>参加費を支払う</li>
+    <li><a href="https://docs.google.com/spreadsheets/d/1RFL761MTJaO1_WLJOrUpJc67IvFteVJ4zw56OL9ErR8/edit#gid=0"
+        target="_blank">スプレッドシートに名前を書いて「支払済み」にする</a></li>
   </ol>
   <p>
     <!-- Load Stripe.js on your website. -->
@@ -78,8 +83,8 @@
             // a successful payment.
             // Instead use one of the strategies described in
             // https://stripe.com/docs/payments/checkout/fulfillment
-            successUrl: 'https://pyspa-event-2019.web.app/success.html',
-            cancelUrl: 'https://pyspa-event-2019.web.app/canceled.html',
+            successUrl: 'https://year-end-2019.pyspa.org/success.html',
+            cancelUrl: 'https://year-end-2019.pyspa.org/canceled.html',
           })
             .then(function (result) {
               if (result.error) {
@@ -92,7 +97,6 @@
         });
       })();
     </script>
-  </p>
 
 </body>
 
